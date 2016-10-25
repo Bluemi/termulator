@@ -1,4 +1,4 @@
-package terms;
+package term;
 
 public abstract class Term
 {
@@ -14,7 +14,6 @@ public abstract class Term
 	// Gibt an, ob der Wert ausrechenbar ist
 	public boolean hasValidDoubleValue()
 	{
-		boolean valid = true;
 		for (int i = 0; i < terms.length; i++)
 		{
 			if (!terms[i].hasValidDoubleValue())

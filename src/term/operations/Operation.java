@@ -1,6 +1,6 @@
-package terms.operations;
+package term.operations;
 
-import terms.Term;
+import term.Term;
 
 public abstract class Operation extends Term
 {

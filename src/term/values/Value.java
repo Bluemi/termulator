@@ -1,6 +1,6 @@
-package terms.values;
+package term.values;
 
-import terms.Term;
+import term.Term;
 
 public abstract class Value extends Term
 {

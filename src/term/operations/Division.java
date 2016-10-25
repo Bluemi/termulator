@@ -1,8 +1,8 @@
-package terms.operations;
+package term.operations;
 
 import java.lang.ArithmeticException;
 
-import terms.Term;
+import term.Term;
 
 public class Division extends Operation
 {

@@ -1,10 +1,10 @@
-package terms.operations;
+package term.operations;
 
-import terms.Term;
+import term.Term;
 
-public class Multiplikation extends Operation
+public class Multiplication extends Operation
 {
-	public Multiplikation(Term t1, Term t2)
+	public Multiplication(Term t1, Term t2)
 	{
 		super(t1, t2);
 	}
