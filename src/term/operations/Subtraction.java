@@ -14,4 +14,10 @@ public class Subtraction extends Operation
 	{
 		return terms[0].getDoubleValue() - terms[1].getDoubleValue();
 	}
+
+	@Override
+	public String getString()
+	{
+		return "(" + terms[0].getString() + " – " + terms[1].getString() + ")";
+	}
 }

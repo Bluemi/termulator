@@ -1,6 +1,7 @@
 package ui.model;
 
 import term.Term;
+import term.values.constants.DoubleConstant;
 
 public class Model
 {
@@ -8,5 +9,6 @@ public class Model
 
 	public Model()
 	{
+		term = new DoubleConstant(0.0);
 	}
 }

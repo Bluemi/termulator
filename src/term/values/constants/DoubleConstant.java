@@ -13,4 +13,10 @@ public final class DoubleConstant extends Constant
 
 	@Override
 	public double getDoubleValue() { return value; }
+
+	@Override
+	public String getString()
+	{
+		return "" + value;
+	}
 }

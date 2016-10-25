@@ -27,4 +27,10 @@ public class Division extends Operation
 	{
 		return super.hasValidDoubleValue() && (terms[1].getDoubleValue() != 0.0);
 	}
+
+	@Override
+	public String getString()
+	{
+		return "(" + terms[0].getString() + " / " + terms[1].getString() + ")";
+	}
 }

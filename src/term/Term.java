@@ -23,4 +23,6 @@ public abstract class Term
 		}
 		return true;
 	}
+
+	public abstract String getString();
 }
