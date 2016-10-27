@@ -1,4 +1,3 @@
-start: compile run
 run:
 	@gradle -q run
 getlog:
