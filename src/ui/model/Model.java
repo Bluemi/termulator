@@ -11,4 +11,9 @@ public class Model
 	{
 		term = new DoubleConstant(0.0);
 	}
+
+	public String getText()
+	{
+		return term.getString();
+	}
 }
