@@ -1,9 +1,15 @@
 package term.operations;
 
 import term.Term;
+import term.values.VoidValue;
 
 public class Subtraction extends Operation
 {
+	public Subtraction()
+	{
+		super(new VoidValue(), new VoidValue());
+	}
+
 	public Subtraction(Term t1, Term t2)
 	{
 		super(t1, t2);

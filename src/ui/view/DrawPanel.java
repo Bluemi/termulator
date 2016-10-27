@@ -8,8 +8,11 @@ import javax.swing.BorderFactory;
 
 public class DrawPanel extends JPanel
 {
-	public DrawPanel()
+	private String text;
+
+	public DrawPanel(String t)
 	{
+		text = t;
 		setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 
@@ -18,7 +21,7 @@ public class DrawPanel extends JPanel
 	{
 		super.paintComponent(g);
 		clear(g);
-		drawString("NENEN", 10, 10, g);
+		drawString(text, View.Y_SIZE/2, View.X_SIZE/2, g);
 	}
 
 	@Override
@@ -29,7 +32,7 @@ public class DrawPanel extends JPanel
 
 	private void clear(Graphics g)
 	{
-		g.setColor(Color.DARK_GRAY);
+		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, getSize().width-1, getSize().height-1);
 	}
 
@@ -37,5 +40,10 @@ public class DrawPanel extends JPanel
 	{
 		g.setColor(Color.WHITE);
 		g.drawString(text, x, y);
+	}
+
+	public void setText(String t)
+	{
+		text = t;
 	}
 }

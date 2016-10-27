@@ -30,7 +30,7 @@ public class View
 		controller = new DefaultController();
 
 		// Panel erstellen
-		DrawPanel p = new DrawPanel();
+		DrawPanel p = new DrawPanel(model.getText());
 		p.addKeyListener(controller);
 		frame.add(p);
 		frame.pack();

@@ -1,7 +1,7 @@
 package ui.model;
 
 import term.Term;
-import term.values.constants.DoubleConstant;
+import term.values.VoidValue;
 
 public class Model
 {
@@ -9,7 +9,7 @@ public class Model
 
 	public Model()
 	{
-		term = new DoubleConstant(0.0);
+		term = new VoidValue();
 	}
 
 	public String getText()

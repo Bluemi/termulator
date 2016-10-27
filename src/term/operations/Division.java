@@ -3,9 +3,15 @@ package term.operations;
 import java.lang.ArithmeticException;
 
 import term.Term;
+import term.values.VoidValue;
 
 public class Division extends Operation
 {
+	public Division()
+	{
+		super(new VoidValue(), new VoidValue());
+	}
+
 	public Division(Term t1, Term t2)
 	{
 		super(t1, t2);
