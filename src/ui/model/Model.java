@@ -1,21 +1,30 @@
 package ui.model;
 
+import ui.view.View;
+
 import term.Term;
 import term.values.VoidValue;
+import term.operations.Multiplication;
 
 public class Model
 {
-	private Term term;
+	private View view;
+	private Term completeTerm;
 	private Term selectedTerm;
 
-	public Model()
+	public Model(View v)
 	{
-		term = new VoidValue();
-		selectedTerm = term;
+		view = v;
+		completeTerm = new Multiplication(new VoidValue(), new VoidValue());
+		selectedTerm = completeTerm;
 	}
 
-	public String getText()
+	public Term getCompleteTerm() { return completeTerm; }
+	public Term getSelectedTerm() { return selectedTerm; }
+
+	public void levelDownEvent()
 	{
-		return term.getString();
+		selectedTerm = selectedTerm.getLevelDownTerm();
+		view.update();
 	}
 }

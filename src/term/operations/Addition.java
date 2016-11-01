@@ -2,8 +2,9 @@ package term.operations;
 
 import term.Term;
 import term.values.VoidValue;
+import term.operations.PairOperation;
 
-public class Addition extends Operation
+public class Addition extends PairOperation
 {
 	public Addition()
 	{
@@ -22,8 +23,5 @@ public class Addition extends Operation
 	}
 
 	@Override
-	public String getString()
-	{
-		return "(" + terms[0].getString() + " + " + terms[1].getString() + ")";
-	}
+	public String getCalcSign() { return "+"; }
 }

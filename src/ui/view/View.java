@@ -12,6 +12,7 @@ public class View
 	private Model model;
 
 	private JFrame frame;
+	private DrawPanel panel;
 
 	public static final int X_SIZE = 500;
 	public static final int Y_SIZE = 500;
@@ -24,17 +25,22 @@ public class View
 		frame.setLocation(200,200);
 
 		// Model erstellen
-		Model model = new Model();
+		model = new Model(this);
 
 		// Controller erstellen
-		controller = new DefaultController();
+		controller = new DefaultController(model);
 
 		// Panel erstellen
-		DrawPanel p = new DrawPanel(model.getText());
-		p.addKeyListener(controller);
-		frame.add(p);
+		panel = new DrawPanel(model.getCompleteTerm(), model.getSelectedTerm());
+		frame.addKeyListener(controller);
+		frame.add(panel);
 		frame.pack();
 
 		frame.setVisible(true);
+	}
+
+	public void update()
+	{
+		panel.update(model.getCompleteTerm(), model.getSelectedTerm());
 	}
 }

@@ -2,25 +2,29 @@ package ui.controller;
 
 import java.awt.event.KeyEvent;
 
-public class DefaultController implements Controller
-{
-	public DefaultController() {};
+import ui.model.Model;
 
-	@Override
-	public void keyTyped(KeyEvent e)
+public class DefaultController extends Controller
+{
+	public DefaultController(Model model)
 	{
-		System.out.println("Typed");
+		super(model);
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e)
 	{
-		System.out.println("Pressed");
+		switch (e.getKeyCode())
+		{
+			case KeyEvent.VK_J:
+			{
+				getModel().levelDownEvent();
+				break;
+			}
+			default:
+				//System.out.println("unknown key with keycode: " + e.getKeyCode());
+				break;
+		}
 	}
 
-	@Override
-	public void keyReleased(KeyEvent e)
-	{
-		System.out.println("Released");
-	}
 }

@@ -28,4 +28,20 @@ public abstract class Operation extends Term implements TermContainer
 
 	@Override public Term[] getTerms() { return terms; }
 	@Override public void setTerms(Term... t) { terms = t; }
+
+	@Override
+	public String getRenderString(Term selectedTerm)
+	{
+		if (this == selectedTerm)
+		{
+			return BEGIN_RENDERSTRING_TOKEN + getString() + END_RENDERSTRING_TOKEN;
+		}
+		return getTerms()[0].getRenderString(selectedTerm) + "" + getTerms()[1].getRenderString(selectedTerm);
+	}
+
+	@Override
+	public Term getLevelDownTerm()
+	{
+		return terms[0];
+	}
 }

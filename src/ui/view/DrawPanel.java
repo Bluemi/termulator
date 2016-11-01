@@ -6,13 +6,17 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.BorderFactory;
 
+import term.Term;
+import term.values.VoidValue;
+
 public class DrawPanel extends JPanel
 {
-	private String text;
+	private Term completeTerm;
+	private Term selectedTerm;
 
-	public DrawPanel(String t)
+	public DrawPanel(Term ct, Term st)
 	{
-		text = t;
+		setTerms(ct, st);
 		setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 
@@ -21,7 +25,14 @@ public class DrawPanel extends JPanel
 	{
 		super.paintComponent(g);
 		clear(g);
-		drawString(text, getSize().width/2, getSize().height/2, g);
+		paintTerms(g);
+	}
+
+	private void paintTerms(Graphics g)
+	{
+		String renderString = completeTerm.getRenderString(selectedTerm);
+		g.setColor(Color.WHITE);
+		g.drawString(renderString, 100, 100);
 	}
 
 	@Override
@@ -36,14 +47,24 @@ public class DrawPanel extends JPanel
 		g.fillRect(0, 0, getSize().width-1, getSize().height-1);
 	}
 
-	public void drawString(String text, int x, int y, Graphics g)
+	public void setTerms(Term ct, Term st)
 	{
-		g.setColor(Color.WHITE);
-		g.drawString(text, x, y);
+		if ((ct == null) || (st == null))
+		{
+			System.out.println("DrawPanel::setTerms(): null argument");
+			completeTerm = new VoidValue();
+			selectedTerm = completeTerm;
+			return;
+		}
+		completeTerm = ct;
+		selectedTerm = st;
 	}
 
-	public void setText(String t)
+	public void update(Term ct, Term st)
 	{
-		text = t;
+		setTerms(ct, st);
+		Graphics g = getGraphics();
+		clear(g);
+		paintTerms(g);
 	}
 }

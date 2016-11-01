@@ -2,8 +2,9 @@ package term.operations;
 
 import term.Term;
 import term.values.VoidValue;
+import term.operations.PairOperation;
 
-public class Subtraction extends Operation
+public class Subtraction extends PairOperation
 {
 	public Subtraction()
 	{
@@ -22,8 +23,5 @@ public class Subtraction extends Operation
 	}
 
 	@Override
-	public String getString()
-	{
-		return "(" + terms[0].getString() + " – " + terms[1].getString() + ")";
-	}
+	public String getCalcSign() { return "-"; }
 }

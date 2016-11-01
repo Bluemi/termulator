@@ -4,8 +4,9 @@ import java.lang.ArithmeticException;
 
 import term.Term;
 import term.values.VoidValue;
+import term.operations.PairOperation;
 
-public class Division extends Operation
+public class Division extends PairOperation
 {
 	public Division()
 	{
@@ -35,8 +36,5 @@ public class Division extends Operation
 	}
 
 	@Override
-	public String getString()
-	{
-		return "(" + terms[0].getString() + " / " + terms[1].getString() + ")";
-	}
+	public String getCalcSign() { return "/"; }
 }
