@@ -21,7 +21,7 @@ public class DrawPanel extends JPanel
 	{
 		super.paintComponent(g);
 		clear(g);
-		drawString(text, View.Y_SIZE/2, View.X_SIZE/2, g);
+		drawString(text, getSize().width/2, getSize().height/2, g);
 	}
 
 	@Override
