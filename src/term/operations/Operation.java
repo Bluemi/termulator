@@ -10,7 +10,7 @@ public abstract class Operation extends Term implements TermContainer
 	protected Operation(Term... t)
 	{
 		super();
-		terms = t;
+		setTerms(t);
 	}
 
 	@Override
@@ -27,7 +27,15 @@ public abstract class Operation extends Term implements TermContainer
 	}
 
 	@Override public Term[] getTerms() { return terms; }
-	@Override public void setTerms(Term... t) { terms = t; }
+	@Override public void setTerms(Term... t)
+	{
+		terms = t;
+		for (Term term : getTerms())
+		{
+			term.setUpperTerm(this);
+			term.setParent(this);
+		}
+	}
 
 	@Override
 	public String getRenderString(Term selectedTerm)

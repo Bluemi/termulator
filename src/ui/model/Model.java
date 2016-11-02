@@ -3,7 +3,7 @@ package ui.model;
 import ui.view.View;
 
 import term.Term;
-import term.values.VoidValue;
+import term.values.constants.DoubleConstant;
 import term.operations.Multiplication;
 
 public class Model
@@ -15,7 +15,7 @@ public class Model
 	public Model(View v)
 	{
 		view = v;
-		completeTerm = new Multiplication(new VoidValue(), new VoidValue());
+		completeTerm = new Multiplication(new DoubleConstant(2.4), new DoubleConstant(5.1));
 		selectedTerm = completeTerm;
 	}
 
@@ -25,6 +25,24 @@ public class Model
 	public void levelDownEvent()
 	{
 		selectedTerm = selectedTerm.getLevelDownTerm();
+		view.update();
+	}
+
+	public void levelUpEvent()
+	{
+		selectedTerm = selectedTerm.getLevelUpperTerm();
+		view.update();
+	}
+
+	public void levelRighterEvent()
+	{
+		selectedTerm = selectedTerm.getRighterTerm();
+		view.update();
+	}
+
+	public void levelLefterEvent()
+	{
+		selectedTerm = selectedTerm.getLefterTerm();
 		view.update();
 	}
 }

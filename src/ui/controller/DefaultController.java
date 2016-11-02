@@ -21,6 +21,21 @@ public class DefaultController extends Controller
 				getModel().levelDownEvent();
 				break;
 			}
+			case KeyEvent.VK_K:
+			{
+				getModel().levelUpEvent();
+				break;
+			}
+			case KeyEvent.VK_L:
+			{
+				getModel().levelRighterEvent();
+				break;
+			}
+			case KeyEvent.VK_H:
+			{
+				getModel().levelLefterEvent();
+				break;
+			}
 			default:
 				//System.out.println("unknown key with keycode: " + e.getKeyCode());
 				break;
