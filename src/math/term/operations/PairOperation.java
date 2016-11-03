@@ -1,6 +1,7 @@
-package term.operations;
+package math.term.operations;
 
-import term.Term;
+import math.term.Term;
+import math.interfaces.Textable;
 
 public abstract class PairOperation extends Operation
 {
@@ -9,8 +10,6 @@ public abstract class PairOperation extends Operation
 		super(t1, t2);
 	}
 
-	public abstract String getCalcSign();
-
 	@Override
 	public String getString()
 	{
@@ -18,7 +17,7 @@ public abstract class PairOperation extends Operation
 	}
 
 	@Override
-	public String getRenderString(Term selectedTerm)
+	public String getRenderString(Textable selectedTerm)
 	{
 		if (this == selectedTerm)
 		{

@@ -37,7 +37,7 @@ public class DefaultController extends Controller
 				break;
 			}
 			default:
-				//System.out.println("unknown key with keycode: " + e.getKeyCode());
+				System.out.println("unknown key with keycode: " + e.getKeyCode());
 				break;
 		}
 	}

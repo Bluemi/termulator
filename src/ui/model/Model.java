@@ -2,9 +2,10 @@ package ui.model;
 
 import ui.view.View;
 
-import term.Term;
-import term.values.constants.DoubleConstant;
-import term.operations.Multiplication;
+import math.term.Term;
+import math.term.values.constants.DoubleConstant;
+import math.term.operations.Multiplication;
+import math.term.operations.Addition;
 
 public class Model
 {
@@ -15,7 +16,7 @@ public class Model
 	public Model(View v)
 	{
 		view = v;
-		completeTerm = new Multiplication(new DoubleConstant(2.4), new DoubleConstant(5.1));
+		completeTerm = new Multiplication(new Addition(new DoubleConstant(2.0), new DoubleConstant(3.2)), new DoubleConstant(5.1));
 		selectedTerm = completeTerm;
 	}
 

@@ -6,8 +6,8 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.BorderFactory;
 
-import term.Term;
-import term.values.VoidValue;
+import math.term.Term;
+import math.term.values.VoidValue;
 
 public class DrawPanel extends JPanel
 {

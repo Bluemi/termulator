@@ -1,7 +1,8 @@
-package term.operations;
+package math.term.operations;
 
-import term.Term;
-import term.TermContainer;
+import math.term.Term;
+import math.container.TermContainer;
+import math.interfaces.Textable;
 
 public abstract class Operation extends Term implements TermContainer
 {
@@ -37,8 +38,7 @@ public abstract class Operation extends Term implements TermContainer
 		}
 	}
 
-	@Override
-	public String getRenderString(Term selectedTerm)
+	@Override public String getRenderString(Textable selectedTerm)
 	{
 		if (this == selectedTerm)
 		{

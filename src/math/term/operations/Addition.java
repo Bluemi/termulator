@@ -1,8 +1,8 @@
-package term.operations;
+package math.term.operations;
 
-import term.Term;
-import term.values.VoidValue;
-import term.operations.PairOperation;
+import math.term.Term;
+import math.term.values.VoidValue;
+import math.term.operations.PairOperation;
 
 public class Addition extends PairOperation
 {

@@ -1,6 +1,6 @@
-package term.values.constants;
+package math.term.values.constants;
 
-import term.values.Value;
+import math.term.values.Value;
 
 public abstract class Constant extends Value
 {

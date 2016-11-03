@@ -1,12 +1,12 @@
-package term;
+package math.term;
 
-public abstract class Term
+import math.container.TermContainer;
+import math.interfaces.Textable;
+
+public abstract class Term implements Textable
 {
 	private Term upperTerm;
 	private TermContainer parent;
-
-	public static final String BEGIN_RENDERSTRING_TOKEN = "<";
-	public static final String END_RENDERSTRING_TOKEN = ">";
 
 	public Term()
 	{
@@ -15,9 +15,6 @@ public abstract class Term
 
 	public abstract double getDoubleValue();
 	public abstract boolean hasValidDoubleValue(); // Gibt an, ob der Wert ausrechenbar ist
-
-	public abstract String getRenderString(Term selectedTerm);
-	public abstract String getString();
 
 	// upper/lower Term
 	public abstract Term getLevelDownTerm();
