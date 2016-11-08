@@ -48,15 +48,15 @@ public abstract class Proposition extends Expression implements TermContainer
 
 	@Override public String getString()
 	{
-		return "(" + getTerms()[0].getString() + " = " + getTerms()[1].getString() + ")";
+		return "(" + getTerms()[0].getString() + " " + getCalcSign() + " " + getTerms()[1].getString() + ")";
 	}
 
 	@Override public String getRenderString(Textable selectedExpression)
 	{
 		if (this == selectedExpression)
 		{
-			return BEGIN_RENDERSTRING_TOKEN + getTerms()[0].getString() + " = " + getTerms()[1].getString() + END_RENDERSTRING_TOKEN;
+			return BEGIN_RENDERSTRING_TOKEN + "(" + getTerms()[0].getString() + " = " + getTerms()[1].getString() + ")" + END_RENDERSTRING_TOKEN;
 		}
-		return "(" + getTerms()[0].getString() + " = " + getTerms()[1].getString() + ")";
+		return "(" + getTerms()[0].getRenderString(selectedExpression) + " = " + getTerms()[1].getRenderString(selectedExpression) + ")";
 	}
 }
