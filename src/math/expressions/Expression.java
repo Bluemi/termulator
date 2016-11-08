@@ -1,6 +1,6 @@
-package math.expression;
+package math.expressions;
 
-import math.container.ExpressionContainer;
+import math.containers.ExpressionContainer;
 import math.interfaces.Textable;
 
 public abstract class Expression implements Textable

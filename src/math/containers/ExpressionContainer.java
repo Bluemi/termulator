@@ -1,6 +1,6 @@
-package math.container;
+package math.containers;
 
-import math.expression.Expression;
+import math.expressions.Expression;
 
 public interface ExpressionContainer
 {

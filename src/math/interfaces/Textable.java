@@ -1,6 +1,6 @@
 package math.interfaces;
 
-import math.term.Term;
+import math.terms.Term;
 
 public interface Textable
 {

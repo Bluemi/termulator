@@ -1,8 +1,8 @@
-package math.term.operations;
+package math.terms.operations;
 
-import math.term.Term;
-import math.expression.Expression;
-import math.container.TermContainer;
+import math.terms.Term;
+import math.expressions.Expression;
+import math.containers.TermContainer;
 import math.interfaces.Textable;
 
 public abstract class Operation extends Term implements TermContainer

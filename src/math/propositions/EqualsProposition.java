@@ -1,6 +1,6 @@
-package math.proposition;
+package math.propositions;
 
-import math.term.Term;
+import math.terms.Term;
 
 public class EqualsProposition extends Proposition
 {

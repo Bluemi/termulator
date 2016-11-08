@@ -1,8 +1,8 @@
-package math.term;
+package math.terms;
 
-import math.container.TermContainer;
+import math.containers.TermContainer;
 import math.interfaces.Textable;
-import math.expression.Expression;
+import math.expressions.Expression;
 
 public abstract class Term extends Expression
 {

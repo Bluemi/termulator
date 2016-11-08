@@ -2,11 +2,11 @@ package ui.model;
 
 import ui.view.View;
 
-import math.expression.Expression;
-import math.term.values.constants.DoubleConstant;
-import math.term.operations.Multiplication;
-import math.term.operations.Addition;
-import math.proposition.EqualsProposition;
+import math.expressions.Expression;
+import math.terms.values.constants.DoubleConstant;
+import math.terms.operations.Multiplication;
+import math.terms.operations.Addition;
+import math.propositions.EqualsProposition;
 
 public class Model
 {

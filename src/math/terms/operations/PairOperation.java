@@ -1,6 +1,6 @@
-package math.term.operations;
+package math.terms.operations;
 
-import math.term.Term;
+import math.terms.Term;
 import math.interfaces.Textable;
 
 public abstract class PairOperation extends Operation

@@ -1,6 +1,6 @@
-package math.container;
+package math.containers;
 
-import math.term.Term;
+import math.terms.Term;
 
 public interface TermContainer extends ExpressionContainer
 {

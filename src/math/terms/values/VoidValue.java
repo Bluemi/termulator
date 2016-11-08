@@ -1,4 +1,4 @@
-package math.term.values;
+package math.terms.values;
 
 public class VoidValue extends Value
 {

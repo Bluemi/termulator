@@ -1,6 +1,6 @@
-package math.term.values.constants;
+package math.terms.values.constants;
 
-import math.term.values.Value;
+import math.terms.values.Value;
 
 public final class DoubleConstant extends Constant
 {

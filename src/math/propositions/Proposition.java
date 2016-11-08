@@ -1,9 +1,9 @@
-package math.proposition;
+package math.propositions;
 
-import math.expression.Expression;
-import math.container.TermContainer;
+import math.expressions.Expression;
+import math.containers.TermContainer;
 import math.interfaces.Textable;
-import math.term.Term;
+import math.terms.Term;
 
 public abstract class Proposition extends Expression implements TermContainer
 {
