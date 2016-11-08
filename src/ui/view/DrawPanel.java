@@ -11,12 +11,11 @@ import math.terms.values.VoidValue;
 
 public class DrawPanel extends JPanel
 {
-	private Expression completeExpression;
-	private Expression selectedExpression;
+	private String text;
 
-	public DrawPanel(Expression ct, Expression st)
+	public DrawPanel(String t)
 	{
-		setExpressions(ct, st);
+		setText(t);
 		setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 
@@ -30,9 +29,8 @@ public class DrawPanel extends JPanel
 
 	private void paintExpressions(Graphics g)
 	{
-		String renderString = completeExpression.getRenderString(selectedExpression);
 		g.setColor(Color.WHITE);
-		g.drawString(renderString, 100, 100);
+		g.drawString(text, 100, 100);
 	}
 
 	@Override
@@ -47,22 +45,14 @@ public class DrawPanel extends JPanel
 		g.fillRect(0, 0, getSize().width-1, getSize().height-1);
 	}
 
-	public void setExpressions(Expression ct, Expression st)
+	private void setText(String t)
 	{
-		if ((ct == null) || (st == null))
-		{
-			System.out.println("DrawPanel::setExpressions(): null argument");
-			completeExpression = new VoidValue();
-			selectedExpression = completeExpression;
-			return;
-		}
-		completeExpression = ct;
-		selectedExpression = st;
+		text = t;
 	}
 
-	public void update(Expression ct, Expression st)
+	public void update(String t)
 	{
-		setExpressions(ct, st);
+		setText(t);
 		Graphics g = getGraphics();
 		clear(g);
 		paintExpressions(g);

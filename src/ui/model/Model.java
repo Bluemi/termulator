@@ -2,49 +2,48 @@ package ui.model;
 
 import ui.view.View;
 
-import math.expressions.Expression;
-import math.terms.values.constants.DoubleConstant;
-import math.terms.operations.Multiplication;
-import math.terms.operations.Addition;
+import math.systems.System;
 import math.propositions.EqualsProposition;
+import math.terms.operations.*;
+import math.terms.values.constants.*;
 
 public class Model
 {
 	private View view;
-	private Expression completeExpression;
-	private Expression selectedExpression;
+	private System system;
 
 	public Model(View v)
 	{
 		view = v;
-		completeExpression = new EqualsProposition(new Multiplication(new Addition(new DoubleConstant(2.0), new DoubleConstant(3.2)), new DoubleConstant(5.1)), new DoubleConstant(4.2));
-		selectedExpression = completeExpression;
+		system = new System(new EqualsProposition(new Multiplication(new Addition(new DoubleConstant(2.0), new DoubleConstant(3.2)), new DoubleConstant(5.1)), new DoubleConstant(4.2)));
 	}
-
-	public Expression getCompleteExpression() { return completeExpression; }
-	public Expression getSelectedExpression() { return selectedExpression; }
 
 	public void levelDownEvent()
 	{
-		selectedExpression = selectedExpression.getDownerExpression();
+		system.levelDownEvent();
 		view.update();
 	}
 
 	public void levelUpEvent()
 	{
-		selectedExpression = selectedExpression.getUpperExpression();
+		system.levelUpEvent();
 		view.update();
 	}
 
 	public void levelRighterEvent()
 	{
-		selectedExpression = selectedExpression.getRighterExpression();
+		system.levelRighterEvent();
 		view.update();
 	}
 
 	public void levelLefterEvent()
 	{
-		selectedExpression = selectedExpression.getLefterExpression();
+		system.levelLefterEvent();
 		view.update();
+	}
+
+	public String getString()
+	{
+		return system.getString();
 	}
 }
