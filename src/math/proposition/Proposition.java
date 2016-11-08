@@ -1,10 +1,11 @@
 package math.proposition;
 
+import math.expression.Expression;
 import math.container.TermContainer;
-import math.term.Term;
 import math.interfaces.Textable;
+import math.term.Term;
 
-public abstract class Proposition implements TermContainer, Textable
+public abstract class Proposition extends Expression implements TermContainer
 {
 	private Term[] terms;
 
@@ -19,14 +20,25 @@ public abstract class Proposition implements TermContainer, Textable
 
 	public abstract String getCalcSign();
 
+	// TermContainer
 	@Override public void setTerms(Term... t_arg)
 	{
 		terms = t_arg;
 		for (Term t : terms)
 		{
 			t.setParent(this);
-			t.setUpperTerm(null); // Weil Proposition kein Term ist
+			t.setUpperExpression(this); // Weil Proposition kein Term ist
 		}
+	}
+
+	@Override public Expression[] getExpressions()
+	{
+		return terms;
+	}
+
+	@Override public Expression getDownerExpression()
+	{
+		return getTerms()[0];
 	}
 
 	@Override public Term[] getTerms()
@@ -39,9 +51,9 @@ public abstract class Proposition implements TermContainer, Textable
 		return "(" + getTerms()[0].getString() + " = " + getTerms()[1].getString() + ")";
 	}
 
-	@Override public String getRenderString(Textable selectedTerm)
+	@Override public String getRenderString(Textable selectedExpression)
 	{
-		if (this == selectedTerm)
+		if (this == selectedExpression)
 		{
 			return BEGIN_RENDERSTRING_TOKEN + getTerms()[0].getString() + " = " + getTerms()[1].getString() + END_RENDERSTRING_TOKEN;
 		}

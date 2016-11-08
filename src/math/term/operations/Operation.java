@@ -1,6 +1,7 @@
 package math.term.operations;
 
 import math.term.Term;
+import math.expression.Expression;
 import math.container.TermContainer;
 import math.interfaces.Textable;
 
@@ -27,17 +28,22 @@ public abstract class Operation extends Term implements TermContainer
 		return true;
 	}
 
+	// TermContainer
 	@Override public Term[] getTerms() { return terms; }
 	@Override public void setTerms(Term... t)
 	{
 		terms = t;
 		for (Term term : getTerms())
 		{
-			term.setUpperTerm(this);
+			term.setUpperExpression(this);
 			term.setParent(this);
 		}
 	}
 
+	// ExpressionContainer
+	@Override public Expression[] getExpressions() { return terms; }
+
+	// Textable
 	@Override public String getRenderString(Textable selectedTerm)
 	{
 		if (this == selectedTerm)
@@ -48,7 +54,7 @@ public abstract class Operation extends Term implements TermContainer
 	}
 
 	@Override
-	public Term getLevelDownTerm()
+	public Term getDownerExpression()
 	{
 		return terms[0];
 	}

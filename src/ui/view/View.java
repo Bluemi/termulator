@@ -31,7 +31,7 @@ public class View
 		controller = new DefaultController(model);
 
 		// Panel erstellen
-		panel = new DrawPanel(model.getCompleteTerm(), model.getSelectedTerm());
+		panel = new DrawPanel(model.getCompleteExpression(), model.getSelectedExpression());
 		frame.addKeyListener(controller);
 		frame.add(panel);
 		frame.pack();
@@ -41,6 +41,6 @@ public class View
 
 	public void update()
 	{
-		panel.update(model.getCompleteTerm(), model.getSelectedTerm());
+		panel.update(model.getCompleteExpression(), model.getSelectedExpression());
 	}
 }

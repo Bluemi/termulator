@@ -2,7 +2,7 @@ package ui.model;
 
 import ui.view.View;
 
-import math.term.Term;
+import math.expression.Expression;
 import math.term.values.constants.DoubleConstant;
 import math.term.operations.Multiplication;
 import math.term.operations.Addition;
@@ -10,40 +10,40 @@ import math.term.operations.Addition;
 public class Model
 {
 	private View view;
-	private Term completeTerm;
-	private Term selectedTerm;
+	private Expression completeExpression;
+	private Expression selectedExpression;
 
 	public Model(View v)
 	{
 		view = v;
-		completeTerm = new Multiplication(new Addition(new DoubleConstant(2.0), new DoubleConstant(3.2)), new DoubleConstant(5.1));
-		selectedTerm = completeTerm;
+		completeExpression = new Multiplication(new Addition(new DoubleConstant(2.0), new DoubleConstant(3.2)), new DoubleConstant(5.1));
+		selectedExpression = completeExpression;
 	}
 
-	public Term getCompleteTerm() { return completeTerm; }
-	public Term getSelectedTerm() { return selectedTerm; }
+	public Expression getCompleteExpression() { return completeExpression; }
+	public Expression getSelectedExpression() { return selectedExpression; }
 
 	public void levelDownEvent()
 	{
-		selectedTerm = selectedTerm.getLevelDownTerm();
+		selectedExpression = selectedExpression.getDownerExpression();
 		view.update();
 	}
 
 	public void levelUpEvent()
 	{
-		selectedTerm = selectedTerm.getLevelUpperTerm();
+		selectedExpression = selectedExpression.getUpperExpression();
 		view.update();
 	}
 
 	public void levelRighterEvent()
 	{
-		selectedTerm = selectedTerm.getRighterTerm();
+		selectedExpression = selectedExpression.getRighterExpression();
 		view.update();
 	}
 
 	public void levelLefterEvent()
 	{
-		selectedTerm = selectedTerm.getLefterTerm();
+		selectedExpression = selectedExpression.getLefterExpression();
 		view.update();
 	}
 }

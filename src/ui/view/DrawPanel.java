@@ -6,17 +6,17 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.BorderFactory;
 
-import math.term.Term;
+import math.expression.Expression;
 import math.term.values.VoidValue;
 
 public class DrawPanel extends JPanel
 {
-	private Term completeTerm;
-	private Term selectedTerm;
+	private Expression completeExpression;
+	private Expression selectedExpression;
 
-	public DrawPanel(Term ct, Term st)
+	public DrawPanel(Expression ct, Expression st)
 	{
-		setTerms(ct, st);
+		setExpressions(ct, st);
 		setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 
@@ -25,12 +25,12 @@ public class DrawPanel extends JPanel
 	{
 		super.paintComponent(g);
 		clear(g);
-		paintTerms(g);
+		paintExpressions(g);
 	}
 
-	private void paintTerms(Graphics g)
+	private void paintExpressions(Graphics g)
 	{
-		String renderString = completeTerm.getRenderString(selectedTerm);
+		String renderString = completeExpression.getRenderString(selectedExpression);
 		g.setColor(Color.WHITE);
 		g.drawString(renderString, 100, 100);
 	}
@@ -47,24 +47,24 @@ public class DrawPanel extends JPanel
 		g.fillRect(0, 0, getSize().width-1, getSize().height-1);
 	}
 
-	public void setTerms(Term ct, Term st)
+	public void setExpressions(Expression ct, Expression st)
 	{
 		if ((ct == null) || (st == null))
 		{
-			System.out.println("DrawPanel::setTerms(): null argument");
-			completeTerm = new VoidValue();
-			selectedTerm = completeTerm;
+			System.out.println("DrawPanel::setExpressions(): null argument");
+			completeExpression = new VoidValue();
+			selectedExpression = completeExpression;
 			return;
 		}
-		completeTerm = ct;
-		selectedTerm = st;
+		completeExpression = ct;
+		selectedExpression = st;
 	}
 
-	public void update(Term ct, Term st)
+	public void update(Expression ct, Expression st)
 	{
-		setTerms(ct, st);
+		setExpressions(ct, st);
 		Graphics g = getGraphics();
 		clear(g);
-		paintTerms(g);
+		paintExpressions(g);
 	}
 }
