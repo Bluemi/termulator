@@ -40,6 +40,16 @@ public abstract class Operation extends Term implements TermContainer
 		}
 	}
 
+	public void setTerm(Term t, int index)
+	{
+		if (index < 0 || index >= terms.length)
+		{
+			System.out.println("Operation.setTerm(): index = " + index + " is invalid");
+			return;
+		}
+		terms[index] = t;
+	}
+
 	// ExpressionContainer
 	@Override public Expression[] getExpressions() { return terms; }
 

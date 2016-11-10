@@ -31,6 +31,16 @@ public abstract class Proposition extends Expression implements TermContainer
 		}
 	}
 
+	@Override public void setTerm(Term t, int index)
+	{
+		if (index < 0 || index >= terms.length)
+		{
+			System.out.println("Proposition.setTerm(): invalid index = " + index);
+			return;
+		}
+		terms[index] = t;
+	}
+
 	@Override public Expression[] getExpressions()
 	{
 		return terms;

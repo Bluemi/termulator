@@ -19,6 +19,12 @@ public abstract class Expression implements Textable
 		return parent;
 	}
 
+	// parent
+	public void setParent(ExpressionContainer p)
+	{
+		parent = p;
+	}
+
 	// upper/lower Expression
 	public abstract Expression getDownerExpression();
 	public Expression getUpperExpression()
@@ -29,6 +35,7 @@ public abstract class Expression implements Textable
 		}
 		return upperExpression;
 	}
+
 	public void setUpperExpression(Expression upper)
 	{
 		upperExpression = upper;
@@ -73,11 +80,5 @@ public abstract class Expression implements Textable
 			}
 		}
 		return this;
-	}
-
-	// parent
-	public void setParent(ExpressionContainer p)
-	{
-		parent = p;
 	}
 }
