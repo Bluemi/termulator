@@ -42,6 +42,30 @@ public class Model
 		view.update();
 	}
 
+	public void insertPlusOperation()
+	{
+		system.insertOperation(new Addition());
+		view.update();
+	}
+
+	public void insertMinusOperation()
+	{
+		system.insertOperation(new Subtraction());
+		view.update();
+	}
+
+	public void insertMultiplicationOperation()
+	{
+		system.insertOperation(new Multiplication());
+		view.update();
+	}
+
+	public void insertDivisionOperation()
+	{
+		system.insertOperation(new Division());
+		view.update();
+	}
+
 	public String getString()
 	{
 		return system.getString();

@@ -15,8 +15,30 @@ public abstract class Operation extends Term implements TermContainer
 		setTerms(t);
 	}
 
-	@Override
-	public boolean hasValidDoubleValue()
+	@Override public boolean insertOperation(Operation op)
+	{
+		TermContainer p = getTermParent();
+		Term[] parentTerms = p.getTerms();
+		int index = -1;
+		for (int i = 0; i < parentTerms.length; i++)
+		{
+			if (parentTerms[i] == this)
+			{
+				index = i;
+			}
+		}
+		if (index == -1)
+		{
+			System.out.println("Operation.insertOperation(): index == -1");
+			return false;
+		}
+
+		p.setTerm(op, index);
+		op.setTerm(this, 0); // Sich selbst an die erste stelle der neuen Operation stellen
+		return true;
+	}
+
+	@Override public boolean hasValidDoubleValue()
 	{
 		for (int i = 0; i < terms.length; i++)
 		{
@@ -47,6 +69,8 @@ public abstract class Operation extends Term implements TermContainer
 			System.out.println("Operation.setTerm(): index = " + index + " is invalid");
 			return;
 		}
+		t.setParent(this);
+		t.setUpperExpression(this);
 		terms[index] = t;
 	}
 

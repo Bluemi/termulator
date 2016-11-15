@@ -2,6 +2,7 @@ package math.expressions;
 
 import math.containers.ExpressionContainer;
 import math.interfaces.Textable;
+import math.terms.operations.Operation;
 
 public abstract class Expression implements Textable
 {
@@ -24,6 +25,8 @@ public abstract class Expression implements Textable
 	{
 		parent = p;
 	}
+
+	public abstract boolean insertOperation(Operation o);
 
 	// upper/lower Expression
 	public abstract Expression getDownerExpression();

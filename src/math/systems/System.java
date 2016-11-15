@@ -2,6 +2,7 @@ package math.systems;
 
 import math.containers.ExpressionContainer;
 import math.expressions.Expression;
+import math.terms.operations.Operation;
 
 public class System implements ExpressionContainer
 {
@@ -25,6 +26,11 @@ public class System implements ExpressionContainer
 	public void levelUpEvent() { selectedExpression = selectedExpression.getUpperExpression(); }
 	public void levelRighterEvent() { selectedExpression = selectedExpression.getRighterExpression(); }
 	public void levelLefterEvent() { selectedExpression = selectedExpression.getLefterExpression(); }
+
+	public boolean insertOperation(Operation op)
+	{
+		return selectedExpression.insertOperation(op);
+	}
 
 	public String getString()
 	{

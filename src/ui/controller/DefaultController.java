@@ -36,6 +36,26 @@ public class DefaultController extends Controller
 				getModel().levelLefterEvent();
 				break;
 			}
+			case KeyEvent.VK_Z: // Plus
+			{
+				getModel().insertPlusOperation();
+				break;
+			}
+			case KeyEvent.VK_U: // Minus
+			{
+				getModel().insertMinusOperation();
+				break;
+			}
+			case KeyEvent.VK_I: // Mal
+			{
+				getModel().insertMultiplicationOperation();
+				break;
+			}
+			case KeyEvent.VK_O: // Durch
+			{
+				getModel().insertDivisionOperation();
+				break;
+			}
 			default:
 				System.out.println("unknown key with keycode: " + e.getKeyCode());
 				break;

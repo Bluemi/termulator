@@ -4,6 +4,7 @@ import math.expressions.Expression;
 import math.containers.TermContainer;
 import math.interfaces.Textable;
 import math.terms.Term;
+import math.terms.operations.Operation;
 
 public abstract class Proposition extends Expression implements TermContainer
 {
@@ -19,6 +20,11 @@ public abstract class Proposition extends Expression implements TermContainer
 	}
 
 	public abstract String getCalcSign();
+
+	@Override public boolean insertOperation(Operation op) // A Proposition can't be replaced by a Operation
+	{
+		return false;
+	}
 
 	// TermContainer
 	@Override public void setTerms(Term... t_arg)
@@ -38,6 +44,8 @@ public abstract class Proposition extends Expression implements TermContainer
 			System.out.println("Proposition.setTerm(): invalid index = " + index);
 			return;
 		}
+		t.setParent(this);
+		t.setUpperExpression(this);
 		terms[index] = t;
 	}
 
