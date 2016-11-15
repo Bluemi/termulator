@@ -36,22 +36,22 @@ public class DefaultController extends Controller
 				getModel().levelLefterEvent();
 				break;
 			}
-			case KeyEvent.VK_Z: // Plus
+			case KeyEvent.VK_A: // Plus
 			{
 				getModel().insertPlusOperation();
 				break;
 			}
-			case KeyEvent.VK_U: // Minus
+			case KeyEvent.VK_S: // Minus
 			{
 				getModel().insertMinusOperation();
 				break;
 			}
-			case KeyEvent.VK_I: // Mal
+			case KeyEvent.VK_D: // Mal
 			{
 				getModel().insertMultiplicationOperation();
 				break;
 			}
-			case KeyEvent.VK_O: // Durch
+			case KeyEvent.VK_F: // Durch
 			{
 				getModel().insertDivisionOperation();
 				break;
