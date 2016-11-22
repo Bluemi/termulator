@@ -86,7 +86,7 @@ public abstract class Proposition extends Expression implements TermContainer
 		terms = t_arg;
 		for (Term t : terms)
 		{
-			t.setParent(this);
+			t.setTermParent(this);
 			t.setUpperExpression(this); // Weil Proposition kein Term ist
 		}
 	}
@@ -98,7 +98,7 @@ public abstract class Proposition extends Expression implements TermContainer
 			System.out.println("Proposition.setTerm(): invalid index = " + index);
 			return;
 		}
-		t.setParent(this);
+		t.setTermParent(this);
 		t.setUpperExpression(this);
 		terms[index] = t;
 	}
