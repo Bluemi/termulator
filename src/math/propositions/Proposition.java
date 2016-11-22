@@ -2,13 +2,16 @@ package math.propositions;
 
 import math.expressions.Expression;
 import math.containers.TermContainer;
+import math.containers.PropositionContainer;
 import math.interfaces.Textable;
 import math.terms.Term;
 import math.terms.operations.Operation;
+import math.terms.values.VoidValue;
 
 public abstract class Proposition extends Expression implements TermContainer
 {
 	private Term[] terms;
+	private PropositionContainer parentProposition;
 
 	public Proposition(Term[] t)
 	{
@@ -19,9 +22,60 @@ public abstract class Proposition extends Expression implements TermContainer
 		setTerms(t);
 	}
 
+	@Override public Term getTerm(int index)
+	{
+		if ((index < 0) || (index >= terms.length))
+		{
+			System.out.println("Proposition.getTerm(): invalid index=" + index);
+			return null;
+		}
+		return terms[index];
+	}
+
+	@Override public Expression getExpression(int index)
+	{
+		return getTerm(index);
+	}
+
+	public PropositionContainer getParentProposition()
+	{
+		return parentProposition;
+	}
+
 	public abstract String getCalcSign();
 
-	@Override public boolean insertOperation(Operation op) // A Proposition can't be replaced by a Operation
+	@Override public boolean removeThis()
+	{
+		if (getParent() == null)
+		{
+			System.out.println("Proposition.removeThis(): parent == null");
+			return false;
+		}
+		PropositionContainer p = getParentProposition();
+		int index = -1;
+		if (p == null)
+		{
+			return false;
+		}
+		for (int i = 0; i < p.getPropositions().length; i++)
+		{
+			if (p.getProposition(i) == this)
+			{
+				index = i;
+			}
+		}
+
+		if (index == -1)
+		{
+			System.out.println("Proposition.removeThis(): index == -1");
+			return false;
+		}
+
+		p.setProposition(null, index); // Wenn eine Proposition entfernt wird, wird auch deren Inhalt entfernt
+		return true;
+	}
+
+	@Override public boolean insertOperation(Operation op) // A Proposition can't be replaced by an Operation
 	{
 		return false;
 	}

@@ -9,5 +9,6 @@ gdb:
 line-counter:
 	@line-counter java
 compile:
+	@reset
 	@gradle -q build
 .PHONY: run getlog gdb line-counter compile start

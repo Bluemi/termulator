@@ -10,14 +10,14 @@ public abstract class PairOperation extends Operation
 		super(t1, t2);
 	}
 
-	@Override
-	public String getString()
+	public abstract String getCalcSign();
+
+	@Override public String getString()
 	{
 		return "(" + terms[0].getString() + getCalcSign() + terms[1].getString() + ")";
 	}
 
-	@Override
-	public String getRenderString(Textable selectedTerm)
+	@Override public String getRenderString(Textable selectedTerm)
 	{
 		if (this == selectedTerm)
 		{

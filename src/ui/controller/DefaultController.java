@@ -56,6 +56,11 @@ public class DefaultController extends Controller
 				getModel().insertDivisionOperation();
 				break;
 			}
+			case KeyEvent.VK_BACK_SPACE:
+			{
+				getModel().remove();
+				break;
+			}
 			default:
 				System.out.println("unknown key with keycode: " + e.getKeyCode());
 				break;

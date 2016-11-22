@@ -66,6 +66,12 @@ public class Model
 		view.update();
 	}
 
+	public void remove()
+	{
+		system.remove();
+		view.update();
+	}
+
 	public String getString()
 	{
 		return system.getString();

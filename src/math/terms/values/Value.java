@@ -17,6 +17,21 @@ public abstract class Value extends Term
 	@Override public boolean insertOperation(Operation op)
 	{
 		TermContainer p = getTermParent();
+		if (p == null)
+		{
+			System.out.println("Value.insertOperation(): getTermParent() == null");
+			if (getParent() == null)
+			{
+				System.out.println("Value.insertOperation(): getParent() == null");
+			}
+			return false;
+		}
+		if (p.getTerms() == null)
+		{
+			p.setTerm(op, 0);
+			op.setTerm(this, 0);
+			return true;
+		}
 		Term[] parentTerms = p.getTerms();
 		int index = -1;
 		for (int i = 0; i < parentTerms.length; i++)

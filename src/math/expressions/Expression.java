@@ -27,6 +27,7 @@ public abstract class Expression implements Textable
 	}
 
 	public abstract boolean insertOperation(Operation o);
+	public abstract boolean removeThis();
 
 	// upper/lower Expression
 	public abstract Expression getDownerExpression();

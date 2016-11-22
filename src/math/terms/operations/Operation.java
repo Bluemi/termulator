@@ -52,13 +52,22 @@ public abstract class Operation extends Term implements TermContainer
 
 	// TermContainer
 	@Override public Term[] getTerms() { return terms; }
+	@Override public Term getTerm(int index)
+	{
+		if ((index < 0) || (index >= terms.length))
+		{
+			System.out.println("Operation.getTerm(): invalid index=" + index);
+			return null;
+		}
+		return terms[index];
+	}
 	@Override public void setTerms(Term... t)
 	{
 		terms = t;
 		for (Term term : getTerms())
 		{
 			term.setUpperExpression(this);
-			term.setParent(this);
+			term.setTermParent(this);
 		}
 	}
 
@@ -69,13 +78,17 @@ public abstract class Operation extends Term implements TermContainer
 			System.out.println("Operation.setTerm(): index = " + index + " is invalid");
 			return;
 		}
-		t.setParent(this);
+		t.setTermParent(this);
 		t.setUpperExpression(this);
 		terms[index] = t;
 	}
 
 	// ExpressionContainer
 	@Override public Expression[] getExpressions() { return terms; }
+	@Override public Expression getExpression(int index)
+	{
+		return getTerm(index);
+	}
 
 	// Textable
 	@Override public String getRenderString(Textable selectedTerm)
